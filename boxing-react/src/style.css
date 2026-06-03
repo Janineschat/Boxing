@@ -1,0 +1,638 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(180deg, #0f0f12 0%, #17171d 100%);
+  color: #f5f5f5;
+  min-height: 100vh;
+}
+
+.hero {
+  position: relative;
+  padding: 8px 10px 60px;
+  background: radial-gradient(
+      circle at top,
+      rgba(255, 72, 0, 0.2),
+      transparent 40%
+    ),
+    linear-gradient(135deg, #121218, #1a1a22);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: url("/images/hero-bg.png") center/cover no-repeat;
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding-top: 0;
+  z-index: 1;
+}
+
+.top-nav {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  gap: 10px;
+  z-index: 2;
+}
+
+.top-nav-link {
+  text-decoration: none;
+  color: #f5f5f5;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  transition: transform 0.15s ease, border-color 0.15s ease,
+    background 0.15s ease;
+}
+
+.top-nav-link:hover {
+  transform: translateY(-1px);
+  border-color: rgba(255, 123, 44, 0.8);
+  background: rgba(255, 123, 44, 0.16);
+}
+
+.top-nav-link.active {
+  border-color: #ff7b2c;
+  background: rgba(255, 123, 44, 0.2);
+}
+
+.site-logo {
+  position: relative;
+  width: 320px;
+  max-width: 40vw;
+  height: auto;
+  margin: 0 0 2px;
+  transform: translate(-24px, -14px) scale(1.14);
+  transform-origin: top left;
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.35));
+}
+
+.tag {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255, 72, 0, 0.14);
+  color: #ff7a3d;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  font-size: 3.2rem;
+  line-height: 1.05;
+  margin-bottom: 16px;
+}
+
+.subtitle {
+  max-width: 700px;
+  color: #c7c7d1;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+.search-bar {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.search-bar input {
+  flex: 1;
+  min-width: 260px;
+  padding: 16px 18px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: #ffffff;
+  color: #111111;
+  font-size: 1rem;
+  outline: none;
+  transition: 0.2s ease;
+}
+
+.search-bar input:focus {
+  border-color: #ff6a2a;
+  box-shadow: 0 0 0 4px rgba(255, 106, 42, 0.15);
+}
+
+.search-bar button {
+  padding: 16px 24px;
+  border: none;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #ff5a1f, #ff7b2c);
+  color: white;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.search-bar button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(255, 90, 31, 0.25);
+}
+
+.page-content {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 32px 18px 60px;
+}
+
+.info-panel,
+.results-section,
+.upcoming-section {
+  margin-bottom: 28px;
+}
+
+.info-panel {
+  padding: 22px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.info-panel h2,
+.section-head h2 {
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+
+.info-panel p {
+  color: #c4c4cf;
+  line-height: 1.6;
+}
+
+.fighters-grid {
+  width: 800px;
+  height: 800px;
+  margin: 18px auto 0;
+  padding: 24px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.28);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  overflow-y: auto;
+}
+
+.fighter-card {
+  width: 100%;
+  max-width: 420px;
+  background: linear-gradient(180deg, #1b1b24 0%, #13131a 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 18px 18px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.fighter-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 106, 42, 0.45);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.35);
+}
+
+.fighter-image {
+  width: 220px;
+  height: 220px;
+  border-radius: 14px;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  background: #111;
+  margin-bottom: 14px;
+}
+
+.fighter-card h3 {
+  font-size: 1.35rem;
+  margin-bottom: 10px;
+}
+
+.fighter-card p {
+  margin-bottom: 8px;
+  color: #d3d3dc;
+  line-height: 1.45;
+}
+
+.fighter-card p:last-child {
+  margin-bottom: 0;
+}
+
+.fighter-card strong {
+  color: #ffffff;
+}
+
+.fight-block {
+  padding: 20px;
+  border-radius: 20px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 90, 31, 0.12),
+    rgba(255, 255, 255, 0.04)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.fight-head {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.fight-logo {
+  width: 54px;
+  height: 54px;
+  display: grid;
+  place-items: center;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #ff5a1f, #ff7b2c);
+  font-weight: 800;
+}
+
+.fight-title {
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.fight-location {
+  color: #c9c9d3;
+}
+
+.fight-topline {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+  color: #d4d4dc;
+  margin-bottom: 14px;
+}
+
+.fight-type {
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  font-size: 0.9rem;
+}
+
+.fight-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.fighter-name {
+  font-size: 1.2rem;
+}
+
+.fight-vs {
+  font-weight: 800;
+  color: #ff7b2c;
+}
+
+.right {
+  text-align: right;
+}
+
+#fighters-list > p {
+  padding: 20px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  color: #d1d1da;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+}
+
+.champions-overview {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.division-wrap {
+  width: 100%;
+  max-width: 940px;
+  margin: 0 auto;
+}
+
+.division-title {
+  font-size: 1.45rem;
+  margin-bottom: 4px;
+}
+
+.division-weight {
+  color: #bfbfca;
+  margin-bottom: 10px;
+}
+
+.division-champion-box {
+  width: 100%;
+  min-height: 220px;
+  border-radius: 20px;
+  padding: 26px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 90, 31, 0.12),
+    rgba(255, 255, 255, 0.04)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.division-champion-name {
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.division-champion-photo {
+  width: 140px;
+  height: 140px;
+  border-radius: 12px;
+  object-fit: cover;
+  object-position: center top;
+  margin-bottom: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.division-champion-meta {
+  color: #d3d3dc;
+  font-size: 1.05rem;
+}
+
+.division-champion-date {
+  margin-top: 8px;
+  color: #ffb18b;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.upcoming-table-section {
+  width: 100%;
+}
+
+.upcoming-table-wrap {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
+}
+
+.upcoming-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.upcoming-table th,
+.upcoming-table td {
+  padding: 14px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: left;
+}
+
+.upcoming-table th {
+  background: rgba(255, 123, 44, 0.15);
+  color: #ffffff;
+  font-size: 0.95rem;
+}
+
+.upcoming-table td {
+  color: #d3d3dc;
+  font-size: 0.95rem;
+}
+
+.upcoming-table tbody tr:hover {
+  background: rgba(255, 123, 44, 0.08);
+}
+
+.champions-section {
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+.champions-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.champions-tag {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: rgba(255, 90, 31, 0.14);
+  color: #ff7a3d;
+  font-weight: 700;
+  margin-bottom: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 0.85rem;
+}
+
+.champions-header h2 {
+  font-size: 2.6rem;
+  margin-bottom: 10px;
+}
+
+.champions-header p {
+  max-width: 720px;
+  margin: 0 auto;
+  color: #c7c7d1;
+  line-height: 1.6;
+}
+
+.champions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.weight-card {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.06),
+    rgba(255, 255, 255, 0.03)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 22px;
+  padding: 22px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.weight-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 106, 42, 0.35);
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.28);
+}
+
+.weight-card h3 {
+  font-size: 1.35rem;
+  margin-bottom: 18px;
+  color: #ffffff;
+}
+
+.belt-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.belt-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.belt {
+  min-width: 58px;
+  text-align: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
+}
+
+.ibf,
+.wba,
+.wbc,
+.wbo {
+  background: linear-gradient(135deg, #451010, #ff5a1f);
+  color: white;
+}
+
+.champion-name {
+  color: #f1f1f5;
+  font-weight: 600;
+  text-align: right;
+  flex: 1;
+}
+
+.champion-name.vacant {
+  color: #ff9c73;
+  font-style: italic;
+}
+
+@media (max-width: 700px) {
+  .hero {
+    padding: 6px 8px 42px;
+  }
+
+  .hero-content {
+    padding-top: 0;
+  }
+
+  .top-nav {
+    position: static;
+    margin-bottom: 8px;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+  }
+
+  .site-logo {
+    width: 220px;
+    max-width: 70vw;
+    transform: translate(-12px, -8px) scale(1.08);
+  }
+
+  .fight-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .right {
+    text-align: left;
+  }
+
+  .fighters-grid {
+    width: 92vw;
+    max-width: 800px;
+    height: 92vw;
+    max-height: 800px;
+    padding: 16px;
+  }
+
+  .fighter-image {
+    width: 180px;
+    height: 180px;
+  }
+
+  .division-title {
+    font-size: 1.2rem;
+  }
+
+  .division-champion-box {
+    min-height: 170px;
+    padding: 18px;
+  }
+
+  .division-champion-name {
+    font-size: 1.5rem;
+  }
+
+  .upcoming-table-wrap {
+    overflow-x: auto;
+  }
+
+  .upcoming-table {
+    min-width: 760px;
+  }
+
+  .champions-header h2 {
+    font-size: 2rem;
+  }
+
+  .belt-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .champion-name {
+    text-align: left;
+  }
+}
