@@ -3,5 +3,5 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/Boxing/boxing-react/dist',
+  base: '/Boxing/boxing-react/dist/',
 })

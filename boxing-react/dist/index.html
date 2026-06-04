@@ -1,11 +1,38 @@
 <!doctype html>
-<html lang="en">
+<html lang="nl">
   <head>
+    <script>
+      var l = window.location;
+      if (l.pathname.indexOf("/Boxing/boxing-react/dist") === -1) {
+        l.replace(
+          l.protocol + "//" + l.hostname + "/Boxing/boxing-react/dist" + l.pathname
+        );
+      }
+    </script>
+    <script>
+      // Herstel pad uit GitHub Pages SPA-redirect (?/route)
+      (function (location) {
+        if (location.search[1] === "/") {
+          var decoded = location.search
+            .slice(1)
+            .split("&")
+            .map(function (part) {
+              return part.replace(/~and~/g, "&");
+            })
+            .join("?");
+          window.history.replaceState(
+            null,
+            null,
+            location.pathname.slice(0, -1) + decoded + location.hash
+          );
+        }
+      })(window.location);
+    </script>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/Boxing/boxing-react/dist/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>boxing-react</title>
-    <script type="module" crossorigin src="/Boxing/boxing-react/dist/assets/index-DPImfWai.js"></script>
+    <title>Boxing World</title>
+    <script type="module" crossorigin src="/Boxing/boxing-react/dist/assets/index-BSz522pJ.js"></script>
     <link rel="stylesheet" crossorigin href="/Boxing/boxing-react/dist/assets/index-GkqJPuYp.css">
   </head>
   <body>
