@@ -4,9 +4,11 @@ import Champions from "./pages/Champions";
 import Titels from "./pages/Titels";
 import UpcomingFights from "./pages/UpcomingFights";
 
+const basename = import.meta.env.BASE_URL.replace(/\/$/, "");
+
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={basename}>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/champions" element={<Champions />} />
