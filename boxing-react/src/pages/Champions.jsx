@@ -1,11 +1,12 @@
 import Layout from "../components/Layout";
+import { assetUrl } from "../utils/assetUrl";
 
 const divisions = [
   {
     title: "Heavyweight",
     weight: "Gewichtsklasse: +90,7 kg",
     name: "Oleksandr Usyk",
-    image: "/images/usyk.jpg",
+    image: assetUrl("/images/usyk.jpg"),
     meta: "Unified Heavyweight Champion - Oekraïne",
     since: "Champion sinds: 18-05-2024",
   },
@@ -13,7 +14,7 @@ const divisions = [
     title: "Cruiserweight",
     weight: "Gewichtsklasse: tot 90,7 kg",
     name: "Jai Opetaia",
-    image: "/images/opetaia.jpg",
+    image: assetUrl("/images/opetaia.jpg"),
     meta: "Top cruiserweight champion - Australië",
     since: "Champion sinds: 07-01-2024",
   },
@@ -21,7 +22,7 @@ const divisions = [
     title: "Middleweight",
     weight: "Gewichtsklasse: tot 72,6 kg",
     name: "Janibek Alimkhanuly",
-    image: "/images/Alimkhanuly.jpg",
+    image: assetUrl("/images/Alimkhanuly.jpg"),
     meta: "Wereldkampioen middleweight - Kazachstan",
     since: "Champion sinds: 14-10-2023",
   },
@@ -29,7 +30,7 @@ const divisions = [
     title: "Welterweight",
     weight: "Gewichtsklasse: tot 66,7 kg",
     name: "Terence Crawford",
-    image: "/images/crawford.jpg",
+    image: assetUrl("/images/crawford.jpg"),
     meta: "Elite kampioen welterweight - Verenigde Staten",
     since: "Champion sinds: 29-07-2023",
   },
@@ -37,7 +38,7 @@ const divisions = [
     title: "Lightweight",
     weight: "Gewichtsklasse: tot 61,2 kg",
     name: "Gervonta Davis",
-    image: "/images/davis.jpg",
+    image: assetUrl("/images/davis.jpg"),
     meta: "Dominante lightweight kampioen - Verenigde Staten",
     since: "Champion sinds: 15-06-2024",
   },

@@ -1,4 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
+import { assetUrl } from "../utils/assetUrl";
 
 const navItems = [
   { to: "/", label: "Home", end: true },
@@ -31,7 +32,7 @@ export default function Layout({ tag, title, subtitle, heroExtra, children }) {
           <Link to="/" aria-label="Ga naar home">
             <img
               className="site-logo"
-              src="/images/logo.jpg"
+              src={assetUrl("/images/logo.jpg")}
               alt="Boxing World logo"
             />
           </Link>

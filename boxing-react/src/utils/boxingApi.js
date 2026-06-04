@@ -2,19 +2,21 @@ const API_BASE = "https://boxing-data-api.p.rapidapi.com/v2";
 const API_HOST = "boxing-data-api.p.rapidapi.com";
 const API_KEY = import.meta.env.VITE_RAPIDAPI_KEY || "";
 
+import { assetUrl } from "./assetUrl";
+
 const imageMap = {
-  "Oleksandr Usyk": "/images/usyk.jpg",
-  "Tyson Fury": "/images/fury.jpg",
-  "Anthony Joshua": "/images/joshua.jpg",
-  "Canelo Alvarez": "/images/canelo.jpg",
-  "Terence Crawford": "/images/crawford.jpg",
-  "Naoya Inoue": "/images/inoue.jpg",
-  "Gervonta Davis": "/images/davis.jpg",
-  "Gervonta 'Tank' Davis": "/images/davis.jpg",
+  "Oleksandr Usyk": assetUrl("/images/usyk.jpg"),
+  "Tyson Fury": assetUrl("/images/fury.jpg"),
+  "Anthony Joshua": assetUrl("/images/joshua.jpg"),
+  "Canelo Alvarez": assetUrl("/images/canelo.jpg"),
+  "Terence Crawford": assetUrl("/images/crawford.jpg"),
+  "Naoya Inoue": assetUrl("/images/inoue.jpg"),
+  "Gervonta Davis": assetUrl("/images/davis.jpg"),
+  "Gervonta 'Tank' Davis": assetUrl("/images/davis.jpg"),
 };
 
 export function getFighterImage(name) {
-  return imageMap[name] || "/images/logo.jpg";
+  return imageMap[name] || assetUrl("/images/logo.jpg");
 }
 
 export function getFromPaths(object, paths) {
